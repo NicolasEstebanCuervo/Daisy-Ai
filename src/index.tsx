@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./styles/App";
 import { Global, css } from "@emotion/react";
+import App from "./App";
 
 const globalStyles = css`
     * {
