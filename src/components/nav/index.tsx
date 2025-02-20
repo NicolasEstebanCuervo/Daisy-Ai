@@ -1,6 +1,5 @@
-import daisyLogo from "../../assets/icons/daisy-logo.png";
+import daisyLogo from "../../assets/icons/daisy-logo.webp";
 import styled from "@emotion/styled";
-import HamburgerButton from "../../assets/svg/hamburguer";
 
 export default function NavBar() {
     return (
@@ -10,8 +9,6 @@ export default function NavBar() {
             </div>
 
             <Button>Join the Waitlist</Button>
-
-            <HamburgerButton />
         </NavBarContainer>
     );
 }
@@ -27,7 +24,7 @@ const NavBarContainer = styled.nav`
         img {
             width: 100%;
             max-height: 70px;
-        
+
             @media (max-width: 500px) {
                 max-height: 50px;
             }

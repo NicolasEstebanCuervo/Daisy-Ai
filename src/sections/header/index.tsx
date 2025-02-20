@@ -1,16 +1,15 @@
 import styled from "@emotion/styled";
-import gridBackground from "../../assets/images/grid-background.png";
-import heroImage from "../../assets/images/hero-image.png";
+import gridBackground from "../../assets/images/grid-background.webp";
+import heroImage from "../../assets/images/hero-image.webp";
 import { Large, Small } from "../../styles/fonts";
 import NavBar from "../../components/nav";
 import { motion } from "framer-motion";
-import { animationProps } from "../../assets/animations";
-import daisyAICommingSoon from "../../assets/icons/daisy-ai-coming-soon.png";
+import { animationProps } from "../../styles/animations";
+import daisyAICommingSoon from "../../assets/icons/daisy-ai-coming-soon.webp";
 import CardDecorationImage from "../../components/cardDecorationImage";
-import daisyAiPrompts from "../../assets/icons/daisy-ai-prompts.png";
-import daisyAiPromptsBlogs from "../../assets/icons/daisy-ai-prompt-for-blog.png";
-import daisyAiSmallBusiness from "../../assets/icons/daisy-ai-small-business-prompt.png";
-
+import daisyAiPrompts from "../../assets/icons/daisy-ai-prompts.webp";
+import daisyAiPromptsBlogs from "../../assets/icons/daisy-ai-prompt-for-blog.webp";
+import daisyAiSmallBusiness from "../../assets/icons/daisy-ai-small-business-prompt.webp";
 
 export default function Header() {
     return (
@@ -45,14 +44,27 @@ export default function Header() {
                         </Small>
                     </div>
 
-                    <ImagesContainer >
-                        <CardDecorationImage top="0" left="0" img={daisyAiPrompts} alt="uwu"/>
-                        <CardDecorationImage left="0" bottom="0" img={daisyAiPromptsBlogs} alt="uwu"/>
-                        <CardDecorationImage top="0" right="0" img={daisyAiSmallBusiness} alt="uwu"/>
-                        
-                        <div
-                            className="daisy-comming-soon-container"
-                        >
+                    <ImagesContainer>
+                        <CardDecorationImage
+                            top="0"
+                            left="0"
+                            img={daisyAiPrompts}
+                            alt="uwu"
+                        />
+                        <CardDecorationImage
+                            left="0"
+                            bottom="0"
+                            img={daisyAiPromptsBlogs}
+                            alt="uwu"
+                        />
+                        <CardDecorationImage
+                            top="0"
+                            right="0"
+                            img={daisyAiSmallBusiness}
+                            alt="uwu"
+                        />
+
+                        <div className="daisy-comming-soon-container">
                             <img src={daisyAICommingSoon} alt="" />
                         </div>
                         <img

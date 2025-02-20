@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
 import { Medium, Smaller, Tiny, TinyLink } from "../../styles/fonts";
-import { animationProps } from "../../assets/animations";
+import { animationProps } from "../../styles/animations";
 
 export default function Contact() {
     return (
         <Container>
-            <Medium {...animationProps} weight={500}>Join the Waitlist</Medium>
+            <Medium {...animationProps} weight={500}>
+                Join the Waitlist
+            </Medium>
 
             <Smaller {...animationProps} weight={700}>
                 Sign up with your email address to receive product news and
@@ -37,7 +39,7 @@ const Container = styled.section`
     gap: 1rem;
     text-align: center;
 
-    div{
+    div {
         display: flex;
         gap: 1rem;
 

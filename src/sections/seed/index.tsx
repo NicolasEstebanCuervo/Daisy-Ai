@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
-import gridBackground from "../../assets/images/grid-green-background.png";
-import snailIcon from "../../assets/icons/snail.png";
+import gridBackground from "../../assets/images/grid-green-background.webp";
+import snailIcon from "../../assets/icons/snail.webp";
 import { Medium } from "../../styles/fonts";
 import Circle from "../../assets/svg/circle";
 import { motion } from "framer-motion";
-import { animationProps } from "../../assets/animations";
+import { animationProps } from "../../styles/animations";
 import LineLeft from "../../assets/svg/lineLeft";
 import LineRight from "../../assets/svg/lineRight";
 
@@ -14,25 +14,29 @@ export default function Seed() {
             <SubContainer>
                 <LeftContainer>
                     <Medium {...animationProps}>
-                        It all starts with the {" "}
+                        It all starts with the{" "}
                         <span
                             style={{
                                 display: "inline-flex",
                                 flexDirection: "column",
-                                position: "relative"
+                                position: "relative",
                             }}
                         >
                             seed
                             <Circle />
-                        </span>
-                        {" "} of an idea.
+                        </span>{" "}
+                        of an idea.
                     </Medium>
 
-                    <motion.img {...animationProps} src={snailIcon} alt="Small snail" />
+                    <motion.img
+                        {...animationProps}
+                        src={snailIcon}
+                        alt="Small snail"
+                    />
                 </LeftContainer>
                 <RighContainer>
                     <Medium {...animationProps}>
-                        Need a little help turning your good ideas into {" "}
+                        Need a little help turning your good ideas into{" "}
                         <span
                             style={{
                                 display: "inline-flex",
@@ -54,7 +58,6 @@ export default function Seed() {
                         </span>
                         <br />
                         <br />
-
                         The way you cultivate your creativity can make all the
                         difference.
                         <motion.span
@@ -99,7 +102,7 @@ const Container = styled.section`
     justify-content: center;
     align-items: center;
 
-    span{
+    span {
         font-family: "Libre Baskerville", serif;
     }
 
@@ -125,7 +128,7 @@ const SubContainer = styled.div`
 const LeftContainer = styled.section`
     flex: 1;
 
-    h3{
+    h3 {
         max-width: 400px;
     }
 

@@ -1,18 +1,18 @@
 import { Medium, Small } from "../../styles/fonts";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import { animationProps } from "../../assets/animations";
+import { animationProps } from "../../styles/animations";
 
 export default function TransformVerticalCard({
     title,
     image,
     text,
-    alt
+    alt,
 }: {
     title: string;
     image: string;
     text: string;
-    alt: string
+    alt: string;
 }) {
     return (
         <Container>
@@ -61,7 +61,7 @@ const Container = styled(motion.article)`
         gap: 1rem;
         padding: 1.5rem;
 
-        img{
+        img {
             display: none;
         }
     }

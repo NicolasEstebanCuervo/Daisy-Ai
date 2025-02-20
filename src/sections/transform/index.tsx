@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
-import gridBackground from "../../assets/images/grid-background.png";
+import gridBackground from "../../assets/images/grid-background.webp";
 import { Large, Medium, Small } from "../../styles/fonts";
-import WideOpenImage from "../../assets/images/wide-open-image.png";
-import GetUnblockedImage from "../../assets/images/get-unblocked-image.png";
-import SaveInspirationImage from "../../assets/images/save-inspiration-image.png";
+import WideOpenImage from "../../assets/images/wide-open-image.webp";
+import GetUnblockedImage from "../../assets/images/get-unblocked-image.webp";
+import SaveInspirationImage from "../../assets/images/save-inspiration-image.webp";
 import TransformVerticalCard from "../../components/transformVerticalCard";
-import { animationProps } from "../../assets/animations";
+import { animationProps } from "../../styles/animations";
 import { motion } from "framer-motion";
 
 export default function Transform() {
@@ -29,7 +29,10 @@ export default function Transform() {
                     </TextsHorizontalContainer>
 
                     <motion.div {...animationProps}>
-                        <img src={WideOpenImage} alt="Screenshot of the Daisy interface, a visual organization tool that displays a spacious and flexible workspace for developing ideas and projects." />
+                        <img
+                            src={WideOpenImage}
+                            alt="Screenshot of the Daisy interface, a visual organization tool that displays a spacious and flexible workspace for developing ideas and projects."
+                        />
                     </motion.div>
                 </HorizontalContainer>
 

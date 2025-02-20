@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
 import { Large } from "../../styles/fonts";
-import CreativeAiImage from "../../assets/images/creativeAi-image.png";
+import CreativeAiImage from "../../assets/images/creativeAi-image.webp";
 import CreativeAICard from "../../components/creativeAICard";
 import FloatIcon from "../../components/floatIcon";
-import balloonAnimal from "../../assets/icons/balloon-animal.png";
-import daisyDoodle from "../../assets/icons/daisy-doodle.png";
-import ghosty from "../../assets/icons/ghosty.png";
-import shape from "../../assets/icons/shape.png";
-import sphere from "../../assets/icons/sphere.png";
+import balloonAnimal from "../../assets/icons/balloon-animal.webp";
+import daisyDoodle from "../../assets/icons/daisy-doodle.webp";
+import ghosty from "../../assets/icons/ghosty.webp";
+import shape from "../../assets/icons/shape.webp";
+import sphere from "../../assets/icons/sphere.webp";
 import { motion } from "framer-motion";
-import { animationProps } from "../../assets/animations";
+import { animationProps } from "../../styles/animations";
 
 export default function CreativeAI() {
     const containerVariants = {
@@ -46,31 +46,11 @@ export default function CreativeAI() {
                 </LeftContainer>
 
                 <ImageContainer {...animationProps}>
-                    <FloatIcon
-                        gridColumn="1"
-                        gridRow="4"
-                        img={daisyDoodle}
-                    />
-                    <FloatIcon
-                        gridColumn="1"
-                        gridRow="2"
-                        img={balloonAnimal}
-                    />
-                    <FloatIcon
-                        gridColumn="6"
-                        gridRow="2"
-                        img={sphere}
-                    />
-                    <FloatIcon
-                        gridColumn="10"
-                        gridRow="4"
-                        img={ghosty}
-                    />
-                    <FloatIcon
-                        gridColumn="10"
-                        gridRow="2"
-                        img={shape}
-                    />
+                    <FloatIcon gridColumn="1" gridRow="4" img={daisyDoodle} />
+                    <FloatIcon gridColumn="1" gridRow="2" img={balloonAnimal} />
+                    <FloatIcon gridColumn="6" gridRow="2" img={sphere} />
+                    <FloatIcon gridColumn="10" gridRow="4" img={ghosty} />
+                    <FloatIcon gridColumn="10" gridRow="2" img={shape} />
 
                     <img
                         className="main-image"
