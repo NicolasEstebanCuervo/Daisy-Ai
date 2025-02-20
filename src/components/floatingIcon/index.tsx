@@ -1,23 +1,28 @@
 import styled from "@emotion/styled";
 
-export default function FloatIcon({
+interface FloatingIconProps {
+    img?: string;
+    gridColumn?: string;
+    gridRow?: string;
+}
+
+export default function FloatingIcon({
     img,
     gridColumn,
     gridRow,
-}: {
-    img: string;
-    gridColumn?: string;
-    gridRow?: string;
-}) {
-    return <Image gridColumn={gridColumn} gridRow={gridRow} src={img} alt="" />;
+}: FloatingIconProps) {
+    return (
+        <FloatingIconImage
+            gridColumn={gridColumn}
+            gridRow={gridRow}
+            src={img}
+            alt=""
+            role="presentation"
+        />
+    );
 }
 
-interface PositionProps {
-    gridColumn?: string;
-    gridRow?: string;
-}
-
-const Image = styled.img<PositionProps>`
+const FloatingIconImage = styled.img<FloatingIconProps>`
     max-height: 130px;
     animation: float 5s ease-in-out infinite;
     grid-column: ${(props) => props.gridColumn};

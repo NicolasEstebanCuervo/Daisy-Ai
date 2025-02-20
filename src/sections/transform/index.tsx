@@ -1,23 +1,21 @@
 import styled from "@emotion/styled";
-import gridBackground from "../../assets/images/grid-background.webp";
+import * as Color from "../../styles/colors";
 import { Large, Medium, Small } from "../../styles/fonts";
-import WideOpenImage from "../../assets/images/wide-open-image.webp";
-import GetUnblockedImage from "../../assets/images/get-unblocked-image.webp";
-import SaveInspirationImage from "../../assets/images/save-inspiration-image.webp";
-import TransformVerticalCard from "../../components/transformVerticalCard";
-import { animationProps } from "../../styles/animations";
+import { GetUnblockedImage, GridBackground, SaveInspirationImage, WideOpenImage } from "../../assets/images";
 import { motion } from "framer-motion";
+import { animationProps } from "../../styles/animations";
+import TransformVerticalCard from "../../components/transformVerticalCard";
 
 export default function Transform() {
     return (
-        <Container>
-            <SubContainer>
+        <TransformSection>
+            <TransformWrapper>
                 <Large margin="2rem 0" {...animationProps}>
                     Turn midnight musings into morning action plans
                 </Large>
 
-                <HorizontalContainer>
-                    <TextsHorizontalContainer>
+                <TransformHorizontalCard>
+                    <TextsTransformHorizontalCard>
                         <Medium {...animationProps}>Wide open spaces</Medium>
 
                         <Small weight={200} {...animationProps}>
@@ -26,7 +24,7 @@ export default function Transform() {
                             fully developed plans and projects, all in one
                             visual, expansive space.
                         </Small>
-                    </TextsHorizontalContainer>
+                    </TextsTransformHorizontalCard>
 
                     <motion.div {...animationProps}>
                         <img
@@ -34,9 +32,9 @@ export default function Transform() {
                             alt="Screenshot of the Daisy interface, a visual organization tool that displays a spacious and flexible workspace for developing ideas and projects."
                         />
                     </motion.div>
-                </HorizontalContainer>
+                </TransformHorizontalCard>
 
-                <VerticalContainer>
+                <VerticalTransformSection>
                     <TransformVerticalCard
                         title="Get unblocked with a little help from AI"
                         image={GetUnblockedImage}
@@ -49,19 +47,19 @@ export default function Transform() {
                         text="Access all your inspiration in one place. Curate your personal creative library — images, videos, websites, and GIFS, at your fingertips. Drag and drop elements onto your canvas and watch your vision unfold."
                         alt="Gallery interface of Daisy showcasing saved inspirations, including images, videos, websites, and GIFs."
                     />
-                </VerticalContainer>
-            </SubContainer>
-        </Container>
+                </VerticalTransformSection>
+            </TransformWrapper>
+        </TransformSection>
     );
 }
 
-const Container = styled.section`
-    background: url(${gridBackground});
+const TransformSection = styled.section`
+    background: url(${GridBackground});
     background-size: cover;
     background-position: center bottom;
     background-color: rgba(0, 0, 0, 0);
     padding: 3rem 5rem;
-    border-top: 4px solid #212e21;
+    border-top: 4px solid ${Color.DarkGreen};
     border-radius: 2rem 2rem 0 0;
 
     display: flex;
@@ -82,19 +80,19 @@ const Container = styled.section`
     }
 `;
 
-const SubContainer = styled.div`
+const TransformWrapper = styled.div`
     max-width: 2000px;
     display: flex;
     gap: 2rem;
     flex-direction: column;
 `;
 
-const HorizontalContainer = styled.article`
+const TransformHorizontalCard = styled.article`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #d2fba4;
-    border: 3px solid #212e21;
+    background: ${Color.LightGreen};
+    border: 3px solid ${Color.DarkGreen};
     padding: 3rem;
     border-radius: 2rem;
     gap: 2rem;
@@ -121,14 +119,14 @@ const HorizontalContainer = styled.article`
     }
 `;
 
-const TextsHorizontalContainer = styled.div`
+const TextsTransformHorizontalCard = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2rem;
     max-width: 600px;
 `;
 
-const VerticalContainer = styled.div`
+const VerticalTransformSection = styled.div`
     display: flex;
     gap: 3rem;
 

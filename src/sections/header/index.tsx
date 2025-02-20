@@ -1,22 +1,19 @@
 import styled from "@emotion/styled";
-import gridBackground from "../../assets/images/grid-background.webp";
-import heroImage from "../../assets/images/hero-image.webp";
+import * as Color from "../../styles/colors";
 import { Large, Small } from "../../styles/fonts";
-import NavBar from "../../components/nav";
+import { GridBackground, HeroImage } from "../../assets/images";
+import { DaisyAiCommingSoonFigure, DaisyAiPromptForBlogFigure, DaisyAiPromptsFigure, DaisyAiSmallBusinessPromptFigure } from "../../assets/icons";
 import { motion } from "framer-motion";
 import { animationProps } from "../../styles/animations";
-import daisyAICommingSoon from "../../assets/icons/daisy-ai-coming-soon.webp";
-import CardDecorationImage from "../../components/cardDecorationImage";
-import daisyAiPrompts from "../../assets/icons/daisy-ai-prompts.webp";
-import daisyAiPromptsBlogs from "../../assets/icons/daisy-ai-prompt-for-blog.webp";
-import daisyAiSmallBusiness from "../../assets/icons/daisy-ai-small-business-prompt.webp";
+import NavBar from "../../components/navBar";
+import FloatingImageCard from "../../components/floatingImageCard";
 
 export default function Header() {
     return (
-        <HeaderContainer {...animationProps}>
-            <SubContainer>
+        <HeaderSection {...animationProps}>
+            <HeaderWrapper>
                 <NavBar />
-                <Content>
+                <ContentWrapper>
                     <div>
                         <Large>
                             Give your ideas a glow up. Meet your new
@@ -29,8 +26,7 @@ export default function Header() {
                                     ease: "easeInOut",
                                 }}
                                 style={{
-                                    backgroundImage:
-                                        "linear-gradient(90deg, #e7ccff, #e7ccff)",
+                                    backgroundImage: `linear-gradient(90deg, ${Color.LightPurple}, ${Color.LightPurple})`,
                                     backgroundRepeat: "no-repeat",
                                     backgroundPosition: "left center",
                                 }}
@@ -44,42 +40,39 @@ export default function Header() {
                         </Small>
                     </div>
 
-                    <ImagesContainer>
-                        <CardDecorationImage
+                    <ImagesWrapper>
+                        <FloatingImageCard
                             top="0"
                             left="0"
-                            img={daisyAiPrompts}
-                            alt="uwu"
+                            img={DaisyAiPromptsFigure}
                         />
-                        <CardDecorationImage
+                        <FloatingImageCard
                             left="0"
                             bottom="0"
-                            img={daisyAiPromptsBlogs}
-                            alt="uwu"
+                            img={DaisyAiPromptForBlogFigure}
                         />
-                        <CardDecorationImage
+                        <FloatingImageCard
                             top="0"
                             right="0"
-                            img={daisyAiSmallBusiness}
-                            alt="uwu"
+                            img={DaisyAiSmallBusinessPromptFigure}
                         />
 
                         <div className="daisy-comming-soon-container">
-                            <img src={daisyAICommingSoon} alt="" />
+                            <img src={DaisyAiCommingSoonFigure} alt="" />
                         </div>
                         <img
-                            src={heroImage}
+                            src={HeroImage}
                             alt="Four creative cards featuring a living room, a book club, a flower, a man with a bottle, and a finance-related design."
                         />
-                    </ImagesContainer>
-                </Content>
-            </SubContainer>
-        </HeaderContainer>
+                    </ImagesWrapper>
+                </ContentWrapper>
+            </HeaderWrapper>
+        </HeaderSection>
     );
 }
 
-const HeaderContainer = styled(motion.header)`
-    background: url(${gridBackground});
+const HeaderSection = styled(motion.header)`
+    background: url(${GridBackground});
     background-size: cover;
     background-position: center bottom;
     background-color: rgba(0, 0, 0, 0);
@@ -97,13 +90,13 @@ const HeaderContainer = styled(motion.header)`
     }
 `;
 
-const SubContainer = styled.div`
+const HeaderWrapper = styled.div`
     max-width: 2000px;
     display: flex;
     flex-direction: column;
 `;
 
-const Content = styled.section`
+const ContentWrapper = styled.section`
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -116,7 +109,7 @@ const Content = styled.section`
     }
 `;
 
-const ImagesContainer = styled.div`
+const ImagesWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2rem;

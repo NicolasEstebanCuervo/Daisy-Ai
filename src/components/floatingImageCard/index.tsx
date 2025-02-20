@@ -1,35 +1,33 @@
 import styled from "@emotion/styled";
 
-export default function CardDecorationImage({
-    img,
-    bottom,
-    left,
-    top,
-    right,
-    alt,
-}: {
-    img: string;
-    bottom?: string;
-    left?: string;
-    top?: string;
-    right?: string;
-    alt: string;
-}) {
-    return (
-        <ImageContainer  top={top} bottom={bottom} left={left} right={right}>
-            <img  src={img} alt={alt} />
-        </ImageContainer>
-    );
-}   
-
-interface PositionProps {
+interface FloatingImageCardProps {
+    img?: string;
     bottom?: string;
     left?: string;
     top?: string;
     right?: string;
 }
 
-const ImageContainer = styled.div<PositionProps>`
+export default function FloatingImageCard({
+    img,
+    bottom,
+    left,
+    top,
+    right,
+}: FloatingImageCardProps) {
+    return (
+        <FloatingImageWrapper
+            top={top}
+            bottom={bottom}
+            left={left}
+            right={right}
+        >
+            <img src={img} alt="" />
+        </FloatingImageWrapper>
+    );
+}
+
+const FloatingImageWrapper = styled.div<FloatingImageCardProps>`
     width: 20%;
     position: absolute;
     display: flex;

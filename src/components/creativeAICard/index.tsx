@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
+import * as Color from "../../styles/colors";
 import { Small } from "../../styles/fonts";
 import { motion } from "framer-motion";
 
 export default function CreativeAICard({ text }: { text: string }) {
-    const itemVariants = {
+    const animationVariants = {
         hidden: {
             opacity: 0,
             scale: 0.8,
@@ -19,26 +20,27 @@ export default function CreativeAICard({ text }: { text: string }) {
     };
 
     return (
-        <Container
+        <CreativeAICardWrapper
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={itemVariants}
+            variants={animationVariants}
+            role="article"
         >
             <Small weight={700}>{text}</Small>
-        </Container>
+        </CreativeAICardWrapper>
     );
 }
 
-const Container = styled(motion.article)`
+const CreativeAICardWrapper = styled(motion.article)`
     border-radius: 1rem;
-    border: 3px solid #212e21;
+    border: 3px solid ${Color.DarkGreen};
     padding: 2rem 3rem;
     display: inline-block;
     transition: background-color 1s ease;
 
-    :hover {
-        background: #adda7947;
+    &:hover {
+        background: ${Color.LightGreenTransparent};
     }
 
     @media (max-width: 1000px) {

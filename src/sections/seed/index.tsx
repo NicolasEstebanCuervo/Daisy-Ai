@@ -1,17 +1,19 @@
 import styled from "@emotion/styled";
-import gridBackground from "../../assets/images/grid-green-background.webp";
-import snailIcon from "../../assets/icons/snail.webp";
+import * as Color from "../../styles/colors"
 import { Medium } from "../../styles/fonts";
+import { SnailFigure } from "../../assets/icons";
+import { GridGreenBackground } from "../../assets/images";
 import Circle from "../../assets/svg/circle";
-import { motion } from "framer-motion";
-import { animationProps } from "../../styles/animations";
 import LineLeft from "../../assets/svg/lineLeft";
 import LineRight from "../../assets/svg/lineRight";
+import { motion } from "framer-motion";
+import { animationProps } from "../../styles/animations";
+
 
 export default function Seed() {
     return (
-        <Container>
-            <SubContainer>
+        <SeedSection>
+            <SeedWrapper>
                 <LeftContainer>
                     <Medium {...animationProps}>
                         It all starts with the{" "}
@@ -30,11 +32,11 @@ export default function Seed() {
 
                     <motion.img
                         {...animationProps}
-                        src={snailIcon}
+                        src={SnailFigure}
                         alt="Small snail"
                     />
                 </LeftContainer>
-                <RighContainer>
+                <RightContainer>
                     <Medium {...animationProps}>
                         Need a little help turning your good ideas into{" "}
                         <span
@@ -70,7 +72,7 @@ export default function Seed() {
                             }}
                             style={{
                                 backgroundImage:
-                                    "linear-gradient(90deg, #fefe7e, #fefe7e)",
+                                    `linear-gradient(90deg, ${Color.LightYellow}, ${Color.LightYellow})`,
                                 backgroundRepeat: "no-repeat",
                                 backgroundPosition: "left center",
                             }}
@@ -83,19 +85,19 @@ export default function Seed() {
                         help. <br /> <br /> Let your thoughts take root and
                         watch your creativity bloom.
                     </Medium>
-                </RighContainer>
-            </SubContainer>
-        </Container>
+                </RightContainer>
+            </SeedWrapper>
+        </SeedSection>
     );
 }
 
-const Container = styled.section`
-    background: url(${gridBackground});
+const SeedSection = styled.section`
+    background: url(${GridGreenBackground});
     background-size: cover;
     background-position: center bottom;
     background-color: rgba(0, 0, 0, 0);
     padding: 5rem;
-    border-top: 4px solid #212e21;
+    border-top: 4px solid ${Color.DarkGreen};
     border-radius: 2rem 2rem 0 0;
 
     display: flex;
@@ -115,7 +117,7 @@ const Container = styled.section`
     }
 `;
 
-const SubContainer = styled.div`
+const SeedWrapper = styled.div`
     max-width: 2000px;
     display: flex;
 
@@ -143,7 +145,7 @@ const LeftContainer = styled.section`
     }
 `;
 
-const RighContainer = styled.section`
+const RightContainer = styled.section`
     flex: 2;
     max-width: 1000px;
     position: relative;

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import * as Color from "./colors"
 import { motion } from "framer-motion";
 
 interface FontsProps {
@@ -60,7 +61,7 @@ export const Tiny = styled(motion.span)<FontsProps>`
     font-family: "PT Mono", serif;
     font-size: 0.9;
     font-weight: ${(props) => props.weight || "normal"};
-    color: ${(props) => props.color || "#ffff"};
+    color: ${(props) => props.color || Color.White};
     display: inline-block;
 `;
 
@@ -68,6 +69,6 @@ export const TinyLink = styled(motion.a)<FontsProps>`
     font-family: "PT Mono", serif;
     font-size: 0.9rem;
     font-weight: ${(props) => props.weight || "normal"};
-    color: ${(props) => props.color || "#ffff"};
+    color: ${(props) => props.color || Color.White};
     display: inline-block;
 `;

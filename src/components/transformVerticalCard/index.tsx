@@ -1,9 +1,10 @@
-import { Medium, Small } from "../../styles/fonts";
 import styled from "@emotion/styled";
+import * as Color from "../../styles/colors";
+import { Medium, Small } from "../../styles/fonts";
 import { motion } from "framer-motion";
 import { animationProps } from "../../styles/animations";
 
-export default function TransformVerticalCard({
+export default function VerticalFeatureCard({
     title,
     image,
     text,
@@ -15,37 +16,38 @@ export default function TransformVerticalCard({
     alt: string;
 }) {
     return (
-        <Container>
+        <VerticalFeatureWrapper>
             <Medium {...animationProps}>{title}</Medium>
 
-            <motion.div {...animationProps}>
+            <ImageContainer {...animationProps}>
                 <img src={image} alt={alt} />
-            </motion.div>
+            </ImageContainer>
 
             <Small {...animationProps} weight={200}>
                 {text}
             </Small>
-        </Container>
+        </VerticalFeatureWrapper>
     );
 }
 
-const Container = styled(motion.article)`
+const VerticalFeatureWrapper = styled(motion.article)`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px solid #212e21;
+    border: 3px solid ${Color.DarkGreen};
     padding: 3rem;
     border-radius: 2rem;
     gap: 2rem;
 
-    :nth-child(1) {
-        background: #e7ccff;
+    @media (max-width: 500px) {
+        gap: 1rem;
+        padding: 1.5rem;
     }
+`;
 
-    :nth-child(2) {
-        background: #ccf5ff;
-    }
+const ImageContainer = styled(motion.div)`
+    width: 100%;
 
     img {
         width: 100%;
@@ -58,9 +60,6 @@ const Container = styled(motion.article)`
     }
 
     @media (max-width: 500px) {
-        gap: 1rem;
-        padding: 1.5rem;
-
         img {
             display: none;
         }

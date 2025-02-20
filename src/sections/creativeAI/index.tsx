@@ -1,33 +1,26 @@
 import styled from "@emotion/styled";
+import * as Color from "../../styles/colors";
 import { Large } from "../../styles/fonts";
-import CreativeAiImage from "../../assets/images/creativeAi-image.webp";
-import CreativeAICard from "../../components/creativeAICard";
-import FloatIcon from "../../components/floatIcon";
-import balloonAnimal from "../../assets/icons/balloon-animal.webp";
-import daisyDoodle from "../../assets/icons/daisy-doodle.webp";
-import ghosty from "../../assets/icons/ghosty.webp";
-import shape from "../../assets/icons/shape.webp";
-import sphere from "../../assets/icons/sphere.webp";
-import { motion } from "framer-motion";
+import { CreativeAiImage } from "../../assets/images";
+import { BallonAnimalFigure, DaisyDoodleFigure, GhostyFigure, ShapeFigure, SphereFigure } from "../../assets/icons";
 import { animationProps } from "../../styles/animations";
+import { motion } from "framer-motion";
+import CreativeAICard from "../../components/creativeAICard";
+import FloatingIcon from "../../components/floatingIcon";
 
 export default function CreativeAI() {
     const containerVariants = {
-        hidden: {
-            opacity: 0,
-        },
-        visible: {
+        hidden: { opacity: 0 },
+        visible: { 
             opacity: 1,
-            transition: {
-                staggerChildren: 0.3,
-            },
+            transition: { staggerChildren: 0.3 },
         },
     };
 
     return (
-        <Container>
-            <SubContainer>
-                <LeftContainer>
+        <CreativeAISection>
+            <ContentWrapper>
+                <TextContent>
                     <Large {...animationProps}>
                         Transform chaos into creativity{" "}
                     </Large>
@@ -43,31 +36,31 @@ export default function CreativeAI() {
                         <CreativeAICard text="Save anything that sparks your creativity from across the web" />
                         <CreativeAICard text="Experience the blissful feeling of a perfectly organized junk drawer" />
                     </motion.div>
-                </LeftContainer>
+                </TextContent>
 
-                <ImageContainer {...animationProps}>
-                    <FloatIcon gridColumn="1" gridRow="4" img={daisyDoodle} />
-                    <FloatIcon gridColumn="1" gridRow="2" img={balloonAnimal} />
-                    <FloatIcon gridColumn="6" gridRow="2" img={sphere} />
-                    <FloatIcon gridColumn="10" gridRow="4" img={ghosty} />
-                    <FloatIcon gridColumn="10" gridRow="2" img={shape} />
+                <IllustrationWrapper {...animationProps}>
+                    <FloatingIcon gridColumn="1" gridRow="4" img={DaisyDoodleFigure} />
+                    <FloatingIcon gridColumn="1" gridRow="2" img={BallonAnimalFigure} />
+                    <FloatingIcon gridColumn="6" gridRow="2" img={SphereFigure} />
+                    <FloatingIcon gridColumn="10" gridRow="4" img={GhostyFigure} />
+                    <FloatingIcon gridColumn="10" gridRow="2" img={ShapeFigure} />
 
                     <img
                         className="main-image"
                         src={CreativeAiImage}
                         alt="A surreal collage of the Mona Lisa with the top of her head replaced by a realistic brain. Surrounding her are abstract elements: scribbled handwriting, a chaotic tangled line, and mathematical equations."
                     />
-                </ImageContainer>
-            </SubContainer>
-        </Container>
+                </IllustrationWrapper>
+            </ContentWrapper>
+        </CreativeAISection>
     );
 }
 
-const Container = styled(motion.section)`
+const CreativeAISection = styled(motion.section)`
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: 4px solid #212e21;
+    border-top: 4px solid ${Color.DarkGreen};
     border-radius: 2rem 2rem 0 0;
 
     @media (max-width: 767px) {
@@ -75,7 +68,7 @@ const Container = styled(motion.section)`
     }
 `;
 
-const SubContainer = styled.div`
+const ContentWrapper = styled.div`
     max-width: 1500px;
     display: flex;
     justify-content: center;
@@ -91,7 +84,7 @@ const SubContainer = styled.div`
     }
 `;
 
-const LeftContainer = styled.div`
+const TextContent = styled.div`
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -109,12 +102,11 @@ const LeftContainer = styled.div`
     }
 `;
 
-const ImageContainer = styled(motion.div)`
+const IllustrationWrapper = styled(motion.div)`
     flex: 1;
-
     display: grid;
-    grid-template-columns: repeat(10, 1fr); /* 10 columnas */
-    grid-template-rows: repeat(5, 1fr); /* 10 filas */
+    grid-template-columns: repeat(10, 1fr); 
+    grid-template-rows: repeat(5, 1fr); 
 
     max-width: 1000px;
     align-self: flex-end;
@@ -122,13 +114,13 @@ const ImageContainer = styled(motion.div)`
     .main-image {
         width: 100%;
         max-height: 900px;
-        grid-column: 1 / span 10; /* Ocupa todas las columnas (de 1 a 10) */
+        grid-column: 1 / span 10; 
         grid-row: 1 / span 10;
     }
 
     @media (max-width: 1000px) {
         img {
-            display: none; /* Ocultar la imagen principal en pantallas pequeñas */
+            display: none;
         }
     }
 `;
