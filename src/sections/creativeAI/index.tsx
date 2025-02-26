@@ -38,7 +38,7 @@ export default function CreativeAI() {
                     </motion.div>
                 </TextContent>
 
-                <IllustrationWrapper {...animationProps}>
+                <IllustrationsWrapper {...animationProps}>
                     <FloatingIcon gridColumn="1" gridRow="4" img={DaisyDoodleFigure} />
                     <FloatingIcon gridColumn="1" gridRow="2" img={BallonAnimalFigure} />
                     <FloatingIcon gridColumn="6" gridRow="2" img={SphereFigure} />
@@ -50,7 +50,7 @@ export default function CreativeAI() {
                         src={CreativeAiImage}
                         alt="A surreal collage of the Mona Lisa with the top of her head replaced by a realistic brain. Surrounding her are abstract elements: scribbled handwriting, a chaotic tangled line, and mathematical equations."
                     />
-                </IllustrationWrapper>
+                </IllustrationsWrapper>
             </ContentWrapper>
         </CreativeAISection>
     );
@@ -102,7 +102,7 @@ const TextContent = styled.div`
     }
 `;
 
-const IllustrationWrapper = styled(motion.div)`
+const IllustrationsWrapper = styled(motion.div)`
     flex: 1;
     display: grid;
     grid-template-columns: repeat(10, 1fr); 

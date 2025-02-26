@@ -14,8 +14,8 @@ export default function Transform() {
                     Turn midnight musings into morning action plans
                 </Large>
 
-                <TransformHorizontalCard>
-                    <TextsTransformHorizontalCard>
+                <HorizontalCard>
+                    <TextsHorizontalCard>
                         <Medium {...animationProps}>Wide open spaces</Medium>
 
                         <Small weight={200} {...animationProps}>
@@ -24,7 +24,7 @@ export default function Transform() {
                             fully developed plans and projects, all in one
                             visual, expansive space.
                         </Small>
-                    </TextsTransformHorizontalCard>
+                    </TextsHorizontalCard>
 
                     <motion.div {...animationProps}>
                         <img
@@ -32,9 +32,9 @@ export default function Transform() {
                             alt="Screenshot of the Daisy interface, a visual organization tool that displays a spacious and flexible workspace for developing ideas and projects."
                         />
                     </motion.div>
-                </TransformHorizontalCard>
+                </HorizontalCard>
 
-                <VerticalTransformSection>
+                <VerticalCards>
                     <TransformVerticalCard
                         title="Get unblocked with a little help from AI"
                         image={GetUnblockedImage}
@@ -47,7 +47,7 @@ export default function Transform() {
                         text="Access all your inspiration in one place. Curate your personal creative library — images, videos, websites, and GIFS, at your fingertips. Drag and drop elements onto your canvas and watch your vision unfold."
                         alt="Gallery interface of Daisy showcasing saved inspirations, including images, videos, websites, and GIFs."
                     />
-                </VerticalTransformSection>
+                </VerticalCards>
             </TransformWrapper>
         </TransformSection>
     );
@@ -87,7 +87,7 @@ const TransformWrapper = styled.div`
     flex-direction: column;
 `;
 
-const TransformHorizontalCard = styled.article`
+const HorizontalCard = styled.article`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,14 +119,14 @@ const TransformHorizontalCard = styled.article`
     }
 `;
 
-const TextsTransformHorizontalCard = styled.div`
+const TextsHorizontalCard = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2rem;
     max-width: 600px;
 `;
 
-const VerticalTransformSection = styled.div`
+const VerticalCards = styled.div`
     display: flex;
     gap: 3rem;
 
