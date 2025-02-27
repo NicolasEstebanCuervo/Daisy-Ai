@@ -4,37 +4,31 @@ import { DaisyLogoFigure } from "../../assets/icons";
 
 export default function NavBar() {
     return (
-        <NavWrapper>
-            <LogoWrapper>
-                <img src={DaisyLogoFigure} alt="Daisy logo" />
-            </LogoWrapper>
-
-            <JoinWaitlistButton>Join the Waitlist</JoinWaitlistButton>
-        </NavWrapper>
+        <NavContainer>
+            <NavLogoImage src={DaisyLogoFigure} alt="Daisy logo" />
+            <NavButton>Join the Waitlist</NavButton>
+        </NavContainer>
     );
 }
 
-const NavWrapper = styled.nav`
+const NavContainer = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
 `;
 
-const LogoWrapper = styled.div`
+const NavLogoImage = styled.img`
+    width: 100%;
     max-height: 70px;
+    max-width: 150px;
 
-    img {
-        width: 100%;
-        max-height: 70px;
-
-        @media (max-width: 500px) {
-            max-height: 50px;
-        }
+    @media (max-width: 500px) {
+        max-height: 50px;
     }
 `;
 
-const JoinWaitlistButton = styled.button`
+const NavButton = styled.button`
     background: ${Color.LightGreen};
     padding: 1rem;
     border-radius: 1rem;

@@ -4,7 +4,7 @@ import { Medium, Small } from "../../styles/fonts";
 import { motion } from "framer-motion";
 import { animationProps } from "../../styles/animations";
 
-export default function VerticalFeatureCard({
+export default function CreativeToolCard({
     title,
     image,
     text,
@@ -16,21 +16,21 @@ export default function VerticalFeatureCard({
     alt: string;
 }) {
     return (
-        <VerticalFeatureWrapper>
+        <CreativeToolCardContainer>
             <Medium {...animationProps}>{title}</Medium>
 
-            <ImageContainer {...animationProps}>
-                <img src={image} alt={alt} />
-            </ImageContainer>
+            <CreativeToolImageContainer {...animationProps}>
+                <CreativeToolImage src={image} alt={alt} />
+            </CreativeToolImageContainer>
 
             <Small {...animationProps} weight={200}>
                 {text}
             </Small>
-        </VerticalFeatureWrapper>
+        </CreativeToolCardContainer>
     );
 }
 
-const VerticalFeatureWrapper = styled(motion.article)`
+const CreativeToolCardContainer = styled(motion.article)`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,22 +46,18 @@ const VerticalFeatureWrapper = styled(motion.article)`
     }
 `;
 
-const ImageContainer = styled(motion.div)`
+const CreativeToolImageContainer = styled(motion.div)`
     width: 100%;
+`;
 
-    img {
+const CreativeToolImage = styled.img`
         width: 100%;
-    }
 
     @media (max-width: 767px) {
-        img {
             max-height: 500px;
-        }
     }
 
     @media (max-width: 500px) {
-        img {
             display: none;
-        }
     }
 `;

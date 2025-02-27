@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
-import * as Color from "../../styles/colors"
+import * as Color from "../../styles/colors";
 import { Medium } from "../../styles/fonts";
 import { SnailFigure } from "../../assets/icons";
 import { GridGreenBackground } from "../../assets/images";
-import Circle from "../../assets/svg/circle";
-import LineLeft from "../../assets/svg/lineLeft";
-import LineRight from "../../assets/svg/lineRight";
+import StrokeCircle from "../../assets/svg/strokeCircle";
+import PrimaryLineStroke from "../../assets/svg/PrimaryLineStroke";
+import SecondaryLineStroke from "../../assets/svg/SecondaryLineStroke";
 import { motion } from "framer-motion";
 import { animationProps } from "../../styles/animations";
 
@@ -14,55 +14,38 @@ export default function Seed() {
     return (
         <SeedSection>
             <SeedWrapper>
-                <LeftContainer>
+                <SeedIntroContent>
                     <Medium {...animationProps}>
                         It all starts with the{" "}
-                        <span
-                            style={{
-                                display: "inline-flex",
-                                flexDirection: "column",
-                                position: "relative",
-                            }}
-                        >
+                        <InlineFlexSpan>
                             seed
-                            <Circle />
-                        </span>{" "}
+                            <StrokeCircle />
+                        </InlineFlexSpan>{" "}
                         of an idea.
                     </Medium>
 
-                    <motion.img
+                    <SeedIntroImage
                         {...animationProps}
                         src={SnailFigure}
                         alt="Small snail"
                     />
-                </LeftContainer>
-                <RightContainer>
+                </SeedIntroContent>
+                <SeedMainContent>
                     <Medium {...animationProps}>
                         Need a little help turning your good ideas into{" "}
-                        <span
-                            style={{
-                                display: "inline-flex",
-                                flexDirection: "column",
-                            }}
-                        >
-                            {" "}
+                        <InlineFlexSpan>
                             great
-                            <LineLeft />
-                        </span>
-                        <span
-                            style={{
-                                display: "inline-flex",
-                                flexDirection: "column",
-                            }}
-                        >
+                            <PrimaryLineStroke />
+                        </InlineFlexSpan>
+                        <InlineFlexSpan>
                             ones?
-                            <LineRight />
-                        </span>
+                            <SecondaryLineStroke />
+                        </InlineFlexSpan>
                         <br />
                         <br />
                         The way you cultivate your creativity can make all the
                         difference.
-                        <motion.span
+                        <HighlightText
                             initial={{ backgroundSize: "0% 100%" }}
                             whileInView={{ backgroundSize: "100% 100%" }}
                             viewport={{ once: true }}
@@ -70,22 +53,16 @@ export default function Seed() {
                                 duration: 2,
                                 ease: "easeInOut",
                             }}
-                            style={{
-                                backgroundImage:
-                                    `linear-gradient(90deg, ${Color.LightYellow}, ${Color.LightYellow})`,
-                                backgroundRepeat: "no-repeat",
-                                backgroundPosition: "left center",
-                            }}
                         >
                             Nurture your ideas
-                        </motion.span>{" "}
+                        </HighlightText>{" "}
                         from fleeting thoughts into full-fledged project plans
                         with Daisy. <br /> <br /> Whatever sparks your passion
                         or fuels your professional growth, Daisy is here to
                         help. <br /> <br /> Let your thoughts take root and
                         watch your creativity bloom.
                     </Medium>
-                </RightContainer>
+                </SeedMainContent>
             </SeedWrapper>
         </SeedSection>
     );
@@ -103,10 +80,6 @@ const SeedSection = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    span {
-        font-family: "Libre Baskerville", serif;
-    }
 
     @media (max-width: 1000px) {
         gap: 2rem;
@@ -127,25 +100,23 @@ const SeedWrapper = styled.div`
     }
 `;
 
-const LeftContainer = styled.section`
+const SeedIntroContent = styled.section`
     flex: 1;
 
     h3 {
         max-width: 400px;
     }
+`;
 
-    img {
-        max-height: 120px;
-    }
+const SeedIntroImage = styled(motion.img)`
+    max-height: 120px;
 
     @media (max-width: 1000px) {
-        img {
-            display: none;
-        }
+        display: none;
     }
 `;
 
-const RightContainer = styled.section`
+const SeedMainContent = styled.section`
     flex: 2;
     max-width: 1000px;
     position: relative;
@@ -156,3 +127,20 @@ const RightContainer = styled.section`
         left: 12rem;
     }
 `;
+
+const HighlightText = styled(motion.span)`
+    background-image: linear-gradient(
+        90deg,
+        ${Color.LightYellow},
+        ${Color.LightYellow}
+    );
+    background-repeat: no-repeat;
+    background-position: left center;
+`;
+
+const InlineFlexSpan = styled.span`
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+`;
+

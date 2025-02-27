@@ -2,42 +2,31 @@ import * as Color from "../../styles/colors";
 import styled from "@emotion/styled";
 import { TinyLink } from "../../styles/fonts";
 import { DaisyLogoWhiteFigure } from "../../assets/icons";
-import { Avatar1Image, Avatar2Image, Avatar3Image, Avatar4Image } from "../../assets/images/avatars";
+import {
+    Avatar1Image,
+    Avatar2Image,
+    Avatar3Image,
+    Avatar4Image,
+} from "../../assets/images/avatars";
 
 export default function Footer() {
     return (
-        <FooterSection>
-            <LogoWrapper>
-                <img src={DaisyLogoWhiteFigure} alt="Daisy logo" />
-            </LogoWrapper>
+        <FooterContainer>
+            <FooterLogoImage src={DaisyLogoWhiteFigure} alt="Daisy logo" />¿
+            <FooterContent>
+                <FooterAvatarsContainer>
+                    {[Avatar1Image, Avatar2Image, Avatar3Image, Avatar4Image].map((src, index) => (
+                        <AvatarImage key={index} src={src} alt={`Avatar ${index + 1}`} />
+                    ))}
+                </FooterAvatarsContainer>
 
-            <AvatarsWrapper>
-                <div>
-                    <img
-                        src={Avatar1Image}
-                        alt="Illustration of a person wearing sunglasses and a cap."
-                    />
-                    <img
-                        src={Avatar2Image}
-                        alt="Illustration of a person with headphones and a hoodie."
-                    />
-                    <img
-                        src={Avatar3Image}
-                        alt="Illustration of a person with glasses and a polka-dot shirt."
-                    />
-                    <img
-                        src={Avatar4Image}
-                        alt="Illustration of a person with round glasses and a turtleneck sweater."
-                    />
-                </div>
-
-                <TinyLink href="">Privacy Policy</TinyLink>
-            </AvatarsWrapper>
-        </FooterSection>
+                <TinyLink href="#">Privacy Policy</TinyLink>
+            </FooterContent>
+        </FooterContainer>
     );
 }
 
-const FooterSection = styled.footer`
+const FooterContainer = styled.footer`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,47 +40,38 @@ const FooterSection = styled.footer`
     }
 `;
 
-const LogoWrapper = styled.div`
+const FooterLogoImage = styled.img`
     max-height: 70px;
-    img {
-        width: 100%;
-        max-height: 70px;
-    }
+    max-width: 150px;
+    width: auto;
 `;
 
-const AvatarsWrapper = styled.div`
+const FooterContent = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
-    div {
-        display: flex;
-        gap: 0.5rem;
-        max-height: 70px;
-
-        img {
-            background: ${Color.White};
-            border-radius: 100%;
-            max-height: 70px;
-            width: 100%;
-        }
-    }
-
-    a {
-        align-self: flex-end;
-    }
+    align-items: flex-end;
 
     @media (max-width: 767px) {
-        div {
-            img {
-                background: ${Color.White};
-                border-radius: 100%;
-                max-height: 50px;
-            }
-        }
+        align-items: center;
+    }
+`;
 
-        a {
-            align-self: center;
+const FooterAvatarsContainer = styled.div`
+    display: flex;
+    gap: 0.5rem;
+    max-height: 70px;
+
+    @media (max-width: 767px) {
+        img {
+            max-height: 50px;
         }
     }
+`;
+
+const AvatarImage = styled.img`
+    background: ${Color.White};
+    border-radius: 50%;
+    max-height: 70px;
+    width: auto;
 `;

@@ -17,7 +17,6 @@ export default function FloatingIcon({
             gridRow={gridRow}
             src={img}
             alt=""
-            role="presentation"
         />
     );
 }

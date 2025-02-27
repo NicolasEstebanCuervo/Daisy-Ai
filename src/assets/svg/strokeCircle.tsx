@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 
-const Circle = () => (
+const StrokeCircle = () => (
     <SVG
         xmlns="http://www.w3.org/2000/svg"
         width={115}
@@ -23,7 +23,7 @@ const Circle = () => (
         />
     </SVG>
 );
-export default Circle;
+export default StrokeCircle ;
 
 
 const SVG = styled.svg`

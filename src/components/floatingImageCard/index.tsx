@@ -16,18 +16,18 @@ export default function FloatingImageCard({
     right,
 }: FloatingImageCardProps) {
     return (
-        <FloatingImageWrapper
+        <FloatingImageContainer
             top={top}
             bottom={bottom}
             left={left}
             right={right}
         >
-            <img src={img} alt="" />
-        </FloatingImageWrapper>
+            <FloatingImage src={img} alt="" />
+        </FloatingImageContainer>
     );
 }
 
-const FloatingImageWrapper = styled.div<FloatingImageCardProps>`
+const FloatingImageContainer = styled.div<FloatingImageCardProps>`
     width: 20%;
     position: absolute;
     display: flex;
@@ -37,14 +37,14 @@ const FloatingImageWrapper = styled.div<FloatingImageCardProps>`
     bottom: ${(props) => props.bottom || "auto"};
     left: ${(props) => props.left || "auto"};
     right: ${(props) => props.right || "auto"};
+`;
 
-    img {
-        width: 100%;
-        transform: rotate(5deg);
-        transition: transform 0.3s ease-in-out;
-    }
+const FloatingImage = styled.img`
+    width: 100%;
+    transform: rotate(5deg);
+    transition: transform 0.3s ease-in-out;
 
-    &:hover img {
+    &:hover {
         transform: rotate(0deg);
     }
 `;

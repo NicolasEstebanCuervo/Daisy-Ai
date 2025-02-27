@@ -20,7 +20,7 @@ export default function CreativeAICard({ text }: { text: string }) {
     };
 
     return (
-        <CreativeAICardWrapper
+        <CreativeAICardContainer
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -28,11 +28,11 @@ export default function CreativeAICard({ text }: { text: string }) {
             role="article"
         >
             <Small weight={700}>{text}</Small>
-        </CreativeAICardWrapper>
+        </CreativeAICardContainer>
     );
 }
 
-const CreativeAICardWrapper = styled(motion.article)`
+const CreativeAICardContainer = styled(motion.article)`
     border-radius: 1rem;
     border: 3px solid ${Color.DarkGreen};
     padding: 2rem 3rem;

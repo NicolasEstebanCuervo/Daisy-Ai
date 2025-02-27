@@ -10,6 +10,10 @@ const globalStyles = css`
         box-sizing: border-box;
         outline: none;
     }
+
+    span{
+        margin: 0 10px;
+    }
 `;
 
 const root = ReactDOM.createRoot(

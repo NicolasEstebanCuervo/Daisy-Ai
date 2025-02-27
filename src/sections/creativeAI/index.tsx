@@ -2,7 +2,13 @@ import styled from "@emotion/styled";
 import * as Color from "../../styles/colors";
 import { Large } from "../../styles/fonts";
 import { CreativeAiImage } from "../../assets/images";
-import { BallonAnimalFigure, DaisyDoodleFigure, GhostyFigure, ShapeFigure, SphereFigure } from "../../assets/icons";
+import {
+    BallonAnimalFigure,
+    DaisyDoodleFigure,
+    GhostyFigure,
+    ShapeFigure,
+    SphereFigure,
+} from "../../assets/icons";
 import { animationProps } from "../../styles/animations";
 import { motion } from "framer-motion";
 import CreativeAICard from "../../components/creativeAICard";
@@ -11,7 +17,7 @@ import FloatingIcon from "../../components/floatingIcon";
 export default function CreativeAI() {
     const containerVariants = {
         hidden: { opacity: 0 },
-        visible: { 
+        visible: {
             opacity: 1,
             transition: { staggerChildren: 0.3 },
         },
@@ -19,8 +25,8 @@ export default function CreativeAI() {
 
     return (
         <CreativeAISection>
-            <ContentWrapper>
-                <TextContent>
+            <CreativeAIWrapper>
+                <CreativeAIContent>
                     <Large {...animationProps}>
                         Transform chaos into creativity{" "}
                     </Large>
@@ -30,28 +36,48 @@ export default function CreativeAI() {
                         animate="visible"
                         whileInView="visible"
                         viewport={{ once: true }}
+                        className="CreativeAICardsContainer"
                     >
                         <CreativeAICard text="Throw your thoughts onto an infinite canvas and watch them evolve" />
                         <CreativeAICard text="Turn scattered ideas into coherent plans with your AI collaborator" />
                         <CreativeAICard text="Save anything that sparks your creativity from across the web" />
                         <CreativeAICard text="Experience the blissful feeling of a perfectly organized junk drawer" />
                     </motion.div>
-                </TextContent>
+                </CreativeAIContent>
 
-                <IllustrationsWrapper {...animationProps}>
-                    <FloatingIcon gridColumn="1" gridRow="4" img={DaisyDoodleFigure} />
-                    <FloatingIcon gridColumn="1" gridRow="2" img={BallonAnimalFigure} />
-                    <FloatingIcon gridColumn="6" gridRow="2" img={SphereFigure} />
-                    <FloatingIcon gridColumn="10" gridRow="4" img={GhostyFigure} />
-                    <FloatingIcon gridColumn="10" gridRow="2" img={ShapeFigure} />
+                <CreativeAIIllustrationContainer {...animationProps}>
+                    <FloatingIcon
+                        gridColumn="1"
+                        gridRow="4"
+                        img={DaisyDoodleFigure}
+                    />
+                    <FloatingIcon
+                        gridColumn="1"
+                        gridRow="2"
+                        img={BallonAnimalFigure}
+                    />
+                    <FloatingIcon
+                        gridColumn="6"
+                        gridRow="2"
+                        img={SphereFigure}
+                    />
+                    <FloatingIcon
+                        gridColumn="10"
+                        gridRow="4"
+                        img={GhostyFigure}
+                    />
+                    <FloatingIcon
+                        gridColumn="10"
+                        gridRow="2"
+                        img={ShapeFigure}
+                    />
 
-                    <img
-                        className="main-image"
+                    <CreativeAIImage
                         src={CreativeAiImage}
                         alt="A surreal collage of the Mona Lisa with the top of her head replaced by a realistic brain. Surrounding her are abstract elements: scribbled handwriting, a chaotic tangled line, and mathematical equations."
                     />
-                </IllustrationsWrapper>
-            </ContentWrapper>
+                </CreativeAIIllustrationContainer>
+            </CreativeAIWrapper>
         </CreativeAISection>
     );
 }
@@ -68,7 +94,7 @@ const CreativeAISection = styled(motion.section)`
     }
 `;
 
-const ContentWrapper = styled.div`
+const CreativeAIWrapper = styled.div`
     max-width: 1500px;
     display: flex;
     justify-content: center;
@@ -84,7 +110,7 @@ const ContentWrapper = styled.div`
     }
 `;
 
-const TextContent = styled.div`
+const CreativeAIContent = styled.div`
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -102,21 +128,21 @@ const TextContent = styled.div`
     }
 `;
 
-const IllustrationsWrapper = styled(motion.div)`
+const CreativeAIIllustrationContainer = styled(motion.div)`
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(10, 1fr); 
-    grid-template-rows: repeat(5, 1fr); 
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(5, 1fr);
 
     max-width: 1000px;
     align-self: flex-end;
+`;
 
-    .main-image {
-        width: 100%;
-        max-height: 900px;
-        grid-column: 1 / span 10; 
-        grid-row: 1 / span 10;
-    }
+const CreativeAIImage = styled.img`
+    width: 100%;
+    max-height: 900px;
+    grid-column: 1 / span 10;
+    grid-row: 1 / span 10;
 
     @media (max-width: 1000px) {
         img {

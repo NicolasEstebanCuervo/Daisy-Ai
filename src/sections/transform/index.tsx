@@ -1,10 +1,15 @@
 import styled from "@emotion/styled";
 import * as Color from "../../styles/colors";
 import { Large, Medium, Small } from "../../styles/fonts";
-import { GetUnblockedImage, GridBackground, SaveInspirationImage, WideOpenImage } from "../../assets/images";
+import {
+    GetUnblockedImage,
+    GridBackground,
+    SaveInspirationImage,
+    WideOpenImage,
+} from "../../assets/images";
 import { motion } from "framer-motion";
 import { animationProps } from "../../styles/animations";
-import TransformVerticalCard from "../../components/transformVerticalCard";
+import CreativeToolCard from "../../components/creativeToolCard";
 
 export default function Transform() {
     return (
@@ -14,8 +19,8 @@ export default function Transform() {
                     Turn midnight musings into morning action plans
                 </Large>
 
-                <HorizontalCard>
-                    <TextsHorizontalCard>
+                <IdeaCanvasCard>
+                    <IdeaCanvasContent>
                         <Medium {...animationProps}>Wide open spaces</Medium>
 
                         <Small weight={200} {...animationProps}>
@@ -24,30 +29,30 @@ export default function Transform() {
                             fully developed plans and projects, all in one
                             visual, expansive space.
                         </Small>
-                    </TextsHorizontalCard>
+                    </IdeaCanvasContent>
 
-                    <motion.div {...animationProps}>
-                        <img
+                    <motion.div {...animationProps} className="IdeaCanvasImageContainer">
+                        <IdeaCanvasImage
                             src={WideOpenImage}
                             alt="Screenshot of the Daisy interface, a visual organization tool that displays a spacious and flexible workspace for developing ideas and projects."
                         />
                     </motion.div>
-                </HorizontalCard>
+                </IdeaCanvasCard>
 
-                <VerticalCards>
-                    <TransformVerticalCard
+                <CreativeToolsCardsContainer>
+                    <CreativeToolCard
                         title="Get unblocked with a little help from AI"
                         image={GetUnblockedImage}
                         text="Brainstorm ideas, create action plans, generate to-do lists and more. Organize your thoughts and keep your projects moving forward with Daisy."
                         alt="Daisy AI chat interface with user and AI messages exchanged."
                     />
-                    <TransformVerticalCard
+                    <CreativeToolCard
                         title="Save inspiration anytime, anywhere"
                         image={SaveInspirationImage}
                         text="Access all your inspiration in one place. Curate your personal creative library — images, videos, websites, and GIFS, at your fingertips. Drag and drop elements onto your canvas and watch your vision unfold."
                         alt="Gallery interface of Daisy showcasing saved inspirations, including images, videos, websites, and GIFs."
                     />
-                </VerticalCards>
+                </CreativeToolsCardsContainer>
             </TransformWrapper>
         </TransformSection>
     );
@@ -87,7 +92,7 @@ const TransformWrapper = styled.div`
     flex-direction: column;
 `;
 
-const HorizontalCard = styled.article`
+const IdeaCanvasCard = styled.article`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,10 +101,6 @@ const HorizontalCard = styled.article`
     padding: 3rem;
     border-radius: 2rem;
     gap: 2rem;
-
-    img {
-        width: 100%;
-    }
 
     @media (max-width: 767px) {
         flex-direction: column;
@@ -119,14 +120,26 @@ const HorizontalCard = styled.article`
     }
 `;
 
-const TextsHorizontalCard = styled.div`
+const IdeaCanvasImage = styled.img`
+    width: 100%;
+
+    @media (max-width: 767px) {
+        max-height: 500px;
+    }
+
+    @media (max-width: 500px) {
+        display: none;
+    }
+`;
+
+const IdeaCanvasContent = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2rem;
     max-width: 600px;
 `;
 
-const VerticalCards = styled.div`
+const CreativeToolsCardsContainer = styled.div`
     display: flex;
     gap: 3rem;
 
